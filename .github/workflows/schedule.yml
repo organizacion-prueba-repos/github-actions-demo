@@ -3,6 +3,7 @@ name: Scheduled Job
 on:
   schedule:
     - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   job:
@@ -10,4 +11,5 @@ jobs:
 
     steps:
       - name: Mostrar mensaje
-        run: echo "Ejecutando tarea programada"
+        run: |
+          echo "Ejecutando tarea programada"
