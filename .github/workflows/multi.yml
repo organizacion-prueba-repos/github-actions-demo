@@ -1,0 +1,17 @@
+name: Multi Event Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar evento
+        run: |
+          echo "Evento: ${{ github.event_name }}"
+          echo "Rama: ${{ github.ref }}"
