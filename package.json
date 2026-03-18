@@ -2,7 +2,7 @@
   "name": "github-actions-demo",
   "version": "1.0.0",
   "scripts": {
-    "test": "node sum.test.js",
+    "test": "node test-runner.js",
     "start": "node index.js"
   }
 }
