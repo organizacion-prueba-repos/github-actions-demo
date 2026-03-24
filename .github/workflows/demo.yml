@@ -1,19 +1,12 @@
-name: Demo Outputs
+name: Demo Secrets
 
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      mensaje: ${{ steps.set-output.outputs.mensaje }}
-
-    steps:
-      - id: set-output
-        run: echo "mensaje=Hola desde build" >> $GITHUB_OUTPUT
-
-  test:
-    needs: build
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ needs.build.outputs.mensaje }}"
+      - name: Usar secret
+        run: echo "Deploy ejecutado"
+        env:
+          TOKEN: ${{ secrets.DEMO_SECRET }}
