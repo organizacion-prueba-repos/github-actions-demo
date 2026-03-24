@@ -1,2 +1,2 @@
 require("./sum.test");
-require("./subtract.test");
+require("./substract.test");
