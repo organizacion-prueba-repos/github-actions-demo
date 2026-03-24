@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Build listo"
+      - run: exit 1
 
   test:
     needs: build
