@@ -1,4 +1,4 @@
-name: Demo Needs
+name: Demo Multiple Needs
 
 on: [push]
 
@@ -6,10 +6,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+      - run: echo "Build listo"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Lint OK"
 
   test:
-    needs: build
+    needs: [build, lint]
     runs-on: ubuntu-latest
     steps:
       - run: echo "Tests ejecutados"
