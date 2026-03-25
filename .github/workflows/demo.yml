@@ -6,15 +6,15 @@ on:
   pull_request:
 
 jobs:
-  matrix-performance:
+  checkout-demo:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      max-parallel: 2
-
-      matrix:
-        node: [14, 16, 18, 20]
-
     steps:
-      - run: echo "Testing Node ${{ matrix.node }}"
+      - name: Sin checkout
+        run: ls
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Con checkout
+        run: ls
