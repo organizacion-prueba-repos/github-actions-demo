@@ -1,30 +1,19 @@
-name: Demo Completo
+name: Demo GitHub Actions
 
-on: [push]
-
-permissions:
-  contents: read
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
 
 jobs:
-  build:
+  matrix-demo:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-    steps:
-      - id: version
-        run: echo "version=1.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Testing version ${{ needs.build.outputs.version }}"
+    strategy:
+      matrix:
+        node: [16, 18, 20]
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
     steps:
-      - name: Deploy seguro
-        run: echo "Deploy con secret"
-        env:
-          TOKEN: ${{ secrets.DEMO_SECRET }}
+      - name: Mostrar versión
+        run: |
+          echo "Node version: ${{ matrix.node }}"
