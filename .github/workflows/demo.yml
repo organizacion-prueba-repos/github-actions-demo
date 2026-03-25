@@ -6,15 +6,17 @@ on:
   pull_request:
 
 jobs:
-  checkout-demo:
+  checkout-advanced:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Sin checkout
-        run: ls
-
-      - name: Checkout repo
+      - name: Repo actual
         uses: actions/checkout@v4
 
-      - name: Con checkout
-        run: ls
+      - name: Otro repo
+        uses: actions/checkout@v4
+        with:
+          repository: actions/checkout
+          path: RepositorioPrueba
+
+      - run: ls
