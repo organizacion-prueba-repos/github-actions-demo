@@ -6,12 +6,18 @@ on:
   pull_request:
 
 jobs:
-  git-history:
+  env-demo:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    env:
+      APP_NAME: mi-app
 
-      - run: git log --oneline
+    steps:
+      - name: Usar variable global
+        run: |
+          echo "App: $APP_NAME"
+
+      - name: Variable por step
+        run: echo "Hola $NAME"
+        env:
+          NAME: Tatiana
