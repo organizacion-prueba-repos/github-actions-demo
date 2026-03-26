@@ -1,6 +1,10 @@
 {
   "name": "@organizacion-prueba-repos/github-actions-demo",
   "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/organizacion-prueba-repos/dependabot-demo.git"
+  },
   "scripts": {
     "test": "node test-runner.js",
     "start": "node index.js"
