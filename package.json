@@ -1,6 +1,6 @@
 {
-  "name": "@k18tatiana/github-actions-demo",
-  "version": "1.0.0",
+  "name": "@organizacion-prueba-repos/github-actions-demo",
+  "version": "1.0.1",
   "scripts": {
     "test": "node test-runner.js",
     "start": "node index.js"
