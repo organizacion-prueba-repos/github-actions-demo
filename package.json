@@ -1,6 +1,13 @@
 {
-  "name": "@k18tatiana/github-actions-demo",
-  "version": "1.0.0",
+  "name": "@organizacion-prueba-repos/github-actions-demo",
+  "version": "1.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/organizacion-prueba-repos/dependabot-demo.git"
+  },
   "scripts": {
     "test": "node test-runner.js",
     "start": "node index.js"
