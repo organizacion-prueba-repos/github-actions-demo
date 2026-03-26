@@ -6,9 +6,13 @@ on:
   pull_request:
 
 jobs:
-  timeout-demo:
+  error-demo:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
 
     steps:
-      - run: sleep 120
+      - name: Falla pero sigue
+        run: exit 1
+        continue-on-error: true
+
+      - name: Sigue ejecutando
+        run: echo "El pipeline sigue en pie"
