@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+
+      - run: npm install
+
+      - run: npm run build
+
+      - name: Create ZIP
+        run: zip -r app.zip dist/
+
+      - name: Pack npm
+        run: npm pack
+
+      - name: Semantic Release
+        run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+## Instalar el semantic-release:
+## npm install semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github -D
